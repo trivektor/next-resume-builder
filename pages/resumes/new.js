@@ -1,5 +1,7 @@
+import ResumeForm from "../../components/resume-form";
+
 const NewResume = () => {
-  return <div>New Resume</div>;
+  return <ResumeForm />;
 };
 
 export default NewResume;

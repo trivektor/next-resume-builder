@@ -6,9 +6,16 @@ const AuthProtected = ({ children }) => {
   const isUser = !!session?.user;
 
   useEffect(() => {
-    if (status === "loading") return "Loading...";
+    if (status === "loading") {
+      return;
+    }
+
     if (!isUser) signIn();
   }, [isUser, status]);
+
+  if (status === "loading") {
+    return "Loading...";
+  }
 
   if (isUser) {
     return children;
