@@ -1,5 +1,11 @@
+import Resumes from "../components/resumes";
+
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <div>
+      <Resumes />
+    </div>
+  );
 };
 
 export default Home;

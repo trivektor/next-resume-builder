@@ -26,7 +26,7 @@ const Layout = ({ children }) => {
   return (
     <Fragment>
       {navbar}
-      {children}
+      <main style={{ padding: 20 }}>{children}</main>
     </Fragment>
   );
 };
