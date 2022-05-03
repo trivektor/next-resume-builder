@@ -3,3 +3,5 @@ const NewResume = () => {
 };
 
 export default NewResume;
+
+NewResume.auth = true;

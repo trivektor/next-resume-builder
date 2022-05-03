@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import { SessionProvider } from "next-auth/react";
 import Layout from "../components/layout";
+import AuthProtected from "../components/auth-protected";
 
 export default function App({
   Component,
@@ -9,7 +10,13 @@ export default function App({
   return (
     <SessionProvider session={session}>
       <Layout>
-        <Component {...pageProps} />
+        {Component.auth ? (
+          <AuthProtected>
+            <Component {...pageProps} />
+          </AuthProtected>
+        ) : (
+          <Component {...pageProps} />
+        )}
       </Layout>
     </SessionProvider>
   );
