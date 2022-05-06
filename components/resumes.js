@@ -25,7 +25,6 @@ const Resumes = () => {
 
   return (
     <Fragment>
-      <Button text="Import from LinkedIn" />{" "}
       <Link href="/resumes/new" passHref>
         <Button text="Create New" />
       </Link>
