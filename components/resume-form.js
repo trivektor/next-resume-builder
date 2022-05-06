@@ -1,4 +1,4 @@
-import { Button, FormGroup, InputGroup, TextArea } from "@blueprintjs/core";
+import { TextField, Box, Button, FormGroup } from "@mui/material";
 import { useState } from "react";
 import { useResume } from "../hooks";
 
@@ -11,24 +11,32 @@ const ResumeForm = (resume) => {
   });
 
   return (
-    <fieldset disabled={loading}>
-      <form onSubmit={onSubmit}>
-        <FormGroup label="Title">
-          <InputGroup
-            value={title}
-            onChange={(event) => setTitle(event.target.value)}
-          />
-        </FormGroup>
-        <FormGroup label="Description">
-          <TextArea
-            fill
-            value={description}
-            onChange={(event) => setDescription(event.target.value)}
-          />
-        </FormGroup>
-        <Button text="Save" type="submit" />
-      </form>
-    </fieldset>
+    <Box
+      component="form"
+      onSubmit={onSubmit}
+      disabled={loading}
+      autoComplete="off"
+      width="100%"
+    >
+      <TextField
+        fullWidth
+        margin="normal"
+        label="Title"
+        value={title}
+        onChange={(event) => setTitle(event.target.value)}
+      />
+      <TextField
+        multiline
+        fullWidth
+        margin="normal"
+        label="Description"
+        value={description}
+        onChange={(event) => setDescription(event.target.value)}
+      />
+      <Button variant="contained" color="success" type="submit">
+        Save
+      </Button>
+    </Box>
   );
 };
 

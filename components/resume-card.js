@@ -1,8 +1,8 @@
-import { Card, Elevation } from "@blueprintjs/core";
+import Card from "@mui/material/Card";
 
 const ResumeCard = ({ resume }) => {
   return (
-    <Card elevation={Elevation.TWO}>
+    <Card>
       <h5>{resume.title}</h5>
     </Card>
   );

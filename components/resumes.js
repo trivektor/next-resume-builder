@@ -1,9 +1,10 @@
-import { Button } from "@blueprintjs/core";
+import Button from "@mui/material/Button";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Fragment } from "react";
 import styledComponents from "styled-components";
 import ResumeCard from "./resume-card";
+import AddIcon from "@mui/icons-material/Add";
 
 const Resumes = () => {
   const [resumes, setResumes] = useState([]);
@@ -26,7 +27,9 @@ const Resumes = () => {
   return (
     <Fragment>
       <Link href="/resumes/new" passHref>
-        <Button text="Create New" />
+        <Button variant="contained" color="success" startIcon={<AddIcon />}>
+          New Resume
+        </Button>
       </Link>
       <ResumeGrid>
         {resumes.map((resume) => (
