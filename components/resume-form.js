@@ -8,6 +8,7 @@ const ResumeForm = (resume) => {
   const { onSubmit, loading } = useResume({
     title,
     description,
+    isNew: !!resume,
   });
 
   return (
