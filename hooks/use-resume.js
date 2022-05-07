@@ -1,9 +1,9 @@
 import { useMutation, useQueryClient } from "react-query";
 
-const useResume = ({ title, description, isNew }) => {
+const useResume = ({ title, description, _id }) => {
   const queryClient = useQueryClient();
-  const createMutation = useMutation(async () => {
-    await fetch("/api/resumes/create", {
+  const createMutation = useMutation(() => {
+    return fetch("/api/resumes/create", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -14,20 +14,35 @@ const useResume = ({ title, description, isNew }) => {
       }),
     });
   });
+  const updateMutation = useMutation(() => {
+    return fetch(`/api/resumes/${_id}/update`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title,
+        description,
+      }),
+    });
+  });
 
-  const onSubmit = (event) => {
+  const onSubmit = async (event) => {
     event.preventDefault();
 
-    if (isNew) {
-      createMutation.mutate();
+    if (_id) {
+      await updateMutation.mutate();
     } else {
-      // TODO: implement
+      await createMutation.mutate();
     }
 
     queryClient.invalidateQueries("resumes");
   };
 
-  return { isLoading: createMutation.isLoading, onSubmit };
+  return {
+    isLoading: createMutation.isLoading || updateMutation.isLoading,
+    onSubmit,
+  };
 };
 
 export default useResume;

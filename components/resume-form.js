@@ -2,13 +2,13 @@ import { TextField, Box, Button, FormGroup } from "@mui/material";
 import { useState } from "react";
 import { useResume } from "../hooks";
 
-const ResumeForm = (resume) => {
+const ResumeForm = ({ resume }) => {
   const [title, setTitle] = useState(resume?.title || "");
   const [description, setDescription] = useState(resume?.description || "");
   const { onSubmit, loading } = useResume({
     title,
     description,
-    isNew: !!resume,
+    _id: resume._id,
   });
 
   return (
