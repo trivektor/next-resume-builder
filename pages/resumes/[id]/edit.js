@@ -2,7 +2,7 @@ import { Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import { Fragment } from "react";
 import { useQuery } from "react-query";
-import ResumeForm from "../../../components/resume-form";
+import ResumeEditForm from "../../../components/resume-edit-form/resume-edit-form";
 
 const EditResume = () => {
   const {
@@ -23,7 +23,7 @@ const EditResume = () => {
       <Typography variant="h4" sx={{ mb: "20px" }}>
         Edit Resume
       </Typography>
-      {!isLoading && <ResumeForm resume={data} />}
+      {!isLoading && <ResumeEditForm resume={data} />}
     </Fragment>
   );
 };
