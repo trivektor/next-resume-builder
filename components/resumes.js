@@ -21,7 +21,7 @@ const Resumes = () => {
     <Fragment>
       <Link href="/resumes/new" passHref>
         <Button variant="contained" color="success" startIcon={<AddIcon />}>
-          New Resume
+          Create Resume
         </Button>
       </Link>
       <Box sx={{ mt: 2 }}>

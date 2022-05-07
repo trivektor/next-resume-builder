@@ -5,6 +5,10 @@ import {
   CardContent,
   CardActions,
   Button,
+  Paper,
+  Typography,
+  List,
+  ListItem,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import InsertDriveFileIcon from "@mui/icons-material/InsertDriveFile";
@@ -28,39 +32,37 @@ const ResumeCard = ({ resume }) => {
   };
 
   return (
-    <Card variant="outlined">
-      <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: "#4caf50" }}>
-            <InsertDriveFileIcon />
-          </Avatar>
-        }
-        title={resume.title}
-      />
-      <CardContent>{resume.description}</CardContent>
-      <CardActions>
-        <Link href={`/resumes/${resume._id}/edit`} passHref>
+    <Paper elevation={2} sx={{ padding: "20px" }}>
+      <Typography variant="h5">{resume.title}</Typography>
+      <Typography>{resume.description}</Typography>
+      <List>
+        <ListItem>
+          <Link href={`/resumes/${resume._id}/edit`} passHref>
+            <Button
+              fullWidth
+              variant="outlined"
+              color="primary"
+              startIcon={<EditIcon />}
+              size="small"
+            >
+              Edit
+            </Button>
+          </Link>
+        </ListItem>
+        <ListItem>
           <Button
-            sx={{ mr: 1 }}
-            variant="contained"
-            color="primary"
-            startIcon={<EditIcon />}
+            fullWidth
+            variant="outlined"
+            color="error"
+            startIcon={<DeleteIcon />}
             size="small"
+            onClick={onDelete}
           >
-            Edit
+            Delete
           </Button>
-        </Link>
-        <Button
-          variant="contained"
-          color="error"
-          startIcon={<DeleteIcon />}
-          size="small"
-          onClick={onDelete}
-        >
-          Delete
-        </Button>
-      </CardActions>
-    </Card>
+        </ListItem>
+      </List>
+    </Paper>
   );
 };
 

@@ -1,10 +1,13 @@
+import { Typography } from "@mui/material";
 import { Fragment } from "react";
 import ResumeForm from "../../components/resume-form";
 
 const NewResume = () => {
   return (
     <Fragment>
-      <h1>New Resume</h1>
+      <Typography variant="h4" sx={{ mb: "20px" }}>
+        New Resume
+      </Typography>
       <ResumeForm />
     </Fragment>
   );

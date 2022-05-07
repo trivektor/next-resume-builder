@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import { Fragment } from "react";
 import { useQuery } from "react-query";
@@ -19,7 +20,9 @@ const EditResume = () => {
 
   return (
     <Fragment>
-      <h1>Edit Resume</h1>
+      <Typography variant="h4" sx={{ mb: "20px" }}>
+        Edit Resume
+      </Typography>
       {!isLoading && <ResumeForm resume={data} />}
     </Fragment>
   );

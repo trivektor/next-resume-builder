@@ -3,38 +3,55 @@ import { styled } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
 import Typography from "@mui/material/Typography";
+import LogoutIcon from "@mui/icons-material/Logout";
+import LoginIcon from "@mui/icons-material/Login";
+import PersonIcon from "@mui/icons-material/Person";
 import { Fragment } from "react";
+import Image from "next/image";
 
 const Layout = ({ children }) => {
   const { data: session } = useSession();
   const navbar = (
-    <AppBar position="static" sx={{ bgcolor: "green" }}>
+    <AppBar
+      position="static"
+      sx={{
+        bgcolor: "white",
+        boxShadow: "none",
+        borderBottom: "1px solid #ddd",
+        color: "black",
+      }}
+    >
       <Toolbar>
-        <IconButton
-          size="large"
-          edge="start"
-          color="inherit"
-          aria-label="menu"
-          sx={{ mr: 2 }}
-        >
-          <MenuIcon />
-        </IconButton>
+        <Image
+          src="https://img.icons8.com/fluency/48/000000/resume.png"
+          alt="Resume"
+          width={48}
+          height={48}
+        />
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           Next Resume Builder
         </Typography>
         <div>
           {session ? (
             <Fragment>
-              {session.user.email}
-              <Button onClick={() => signOut()} color="inherit" size="small">
+              <PersonIcon size="large" /> {session.user.email}
+              <Button
+                onClick={() => signOut()}
+                color="inherit"
+                size="small"
+                endIcon={<LogoutIcon />}
+              >
                 Sign out
               </Button>
             </Fragment>
           ) : (
-            <Button onClick={() => signIn()} color="inherit" size="small">
+            <Button
+              onClick={() => signIn()}
+              color="inherit"
+              size="small"
+              endIcon={<LoginIcon />}
+            >
               Sign in
             </Button>
           )}
