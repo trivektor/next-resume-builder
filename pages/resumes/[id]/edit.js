@@ -1,31 +1,18 @@
 import { Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import { Fragment } from "react";
-import { useQuery } from "react-query";
+import { useQuery, useQueryClient, useMutation } from "react-query";
 import ResumeEditForm from "../../../components/resume-edit-form/resume-edit-form";
+import ResumeEditFormContext from "../../../components/resume-edit-form/context";
 
 const EditResume = () => {
   const {
     query: { id },
   } = useRouter();
-  const { data = {}, isLoading } = useQuery(
-    "resume",
-    async () => {
-      const response = await fetch(`/api/resumes/${id}/show`);
 
-      return response.json();
-    },
-    { enabled: !!id }
-  );
+  if (!id) return null;
 
-  return (
-    <Fragment>
-      <Typography variant="h4" sx={{ mb: "20px" }}>
-        Edit Resume
-      </Typography>
-      {!isLoading && <ResumeEditForm resume={data} />}
-    </Fragment>
-  );
+  return <ResumeEditForm resumeId={id} />;
 };
 
 export default EditResume;

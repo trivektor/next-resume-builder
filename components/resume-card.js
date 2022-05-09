@@ -18,13 +18,18 @@ import Link from "next/link";
 
 const ResumeCard = ({ resume }) => {
   const queryClient = useQueryClient();
-  const deleteMutation = useMutation(async (deletedResume) => {
-    await fetch(`/api/resumes/${deletedResume._id}/destroy`, {
-      method: "DELETE",
-    });
-
-    queryClient.invalidateQueries("resumes");
-  });
+  const deleteMutation = useMutation(
+    async () => {
+      await fetch(`/api/resumes/${resume._id}/destroy`, {
+        method: "DELETE",
+      });
+    },
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries("resumes");
+      },
+    }
+  );
   const onDelete = () => {
     if (confirm("Are you sure?")) {
       deleteMutation.mutate(resume);

@@ -7,13 +7,13 @@ export default async function handler(req, res) {
   await dbConnect();
 
   const resume = await Resume.findById(id);
+  const { field, value } = req.body;
 
   const response = await Resume.updateOne(
     { _id: id },
     {
       $set: {
-        title: req.body.title,
-        description: req.body.description,
+        [field]: value,
       },
     }
   );

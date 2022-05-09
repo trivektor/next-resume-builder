@@ -14,18 +14,25 @@ const useResume = ({ title, description, _id }) => {
       }),
     });
   });
-  const updateMutation = useMutation(() => {
-    return fetch(`/api/resumes/${_id}/update`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
+  const updateMutation = useMutation(
+    () => {
+      return fetch(`/api/resumes/${_id}/update`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title,
+          description,
+        }),
+      });
+    },
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries("resumes");
       },
-      body: JSON.stringify({
-        title,
-        description,
-      }),
-    });
-  });
+    }
+  );
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -35,8 +42,6 @@ const useResume = ({ title, description, _id }) => {
     } else {
       await createMutation.mutate();
     }
-
-    queryClient.invalidateQueries("resumes");
   };
 
   return {
