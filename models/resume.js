@@ -11,18 +11,14 @@ const IntroSchema = new Schema({
   industry: String,
 });
 
-const DateSchema = new Schema({
-  month: String,
-  year: Number,
-});
-
 const ExperienceSchema = new Schema({
   title: String,
   employmentType: String,
   companyName: String,
   location: String,
   isCurrent: Boolean,
-  startDate: DateSchema,
+  startDate: String,
+  endDate: String,
   industry: String,
   description: String,
 });
@@ -31,8 +27,8 @@ const EducationSchema = new Schema({
   school: String,
   degree: String,
   fieldOfStudy: String,
-  startDate: DateSchema,
-  endDate: DateSchema,
+  startDate: String,
+  endDate: String,
   grade: Number,
   description: String,
 });

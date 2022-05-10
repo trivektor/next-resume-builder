@@ -9,7 +9,5 @@ export default async function handler(req, res) {
 
   const resume = await Resume.findOne({ _id: mongoose.Types.ObjectId(id) });
 
-  console.log({ resume, id });
-
   res.status(200).json(resume);
 }

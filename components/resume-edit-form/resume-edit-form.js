@@ -39,12 +39,16 @@ const ResumeEditForm = ({ resumeId }) => {
       <Typography variant="h4" sx={{ mb: "20px" }}>
         Edit Resume
       </Typography>
-      <ResumeEditFormContext.Provider value={{ updateMutation, resume: data }}>
-        <div style={{ width: "70%" }}>
-          <Intro />
-          <Experience />
-        </div>
-      </ResumeEditFormContext.Provider>
+      {data && (
+        <ResumeEditFormContext.Provider
+          value={{ updateMutation, resume: data }}
+        >
+          <div style={{ width: "70%" }}>
+            <Intro />
+            <Experience />
+          </div>
+        </ResumeEditFormContext.Provider>
+      )}
     </Fragment>
   );
 };

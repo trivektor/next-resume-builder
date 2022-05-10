@@ -1,5 +1,5 @@
 import { Box, Paper, Button, Typography } from "@mui/material";
-import { Fragment, useContext } from "react";
+import { useContext } from "react";
 import Position from "./position";
 import AddIcon from "@mui/icons-material/Add";
 import ResumeEditFormContext from "./context";
@@ -21,9 +21,11 @@ const Experience = () => {
       <Button variant="contained" onClick={onAdd} startIcon={<AddIcon />}>
         Add Experience
       </Button>
-      {(resume?.sections?.experience ?? []).map((position) => (
-        <Position key={position._id} position={position} />
-      ))}
+      <Box sx={{ mt: "20px" }}>
+        {(resume?.sections?.experience ?? []).map((position) => (
+          <Position key={position._id} position={position} />
+        ))}
+      </Box>
     </Paper>
   );
 };

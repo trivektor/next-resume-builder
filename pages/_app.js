@@ -5,6 +5,8 @@ import AuthProtected from "../components/auth-protected";
 import CssBaseline from "@mui/material/CssBaseline";
 import Head from "next/head";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 
 export default function App({
   Component,
@@ -19,14 +21,16 @@ export default function App({
           <meta name="viewport" content="initial-scale=1, width=device-width" />
         </Head>
         <Layout>
-          <CssBaseline />
-          {Component.auth ? (
-            <AuthProtected>
+          <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <CssBaseline />
+            {Component.auth ? (
+              <AuthProtected>
+                <Component {...pageProps} />
+              </AuthProtected>
+            ) : (
               <Component {...pageProps} />
-            </AuthProtected>
-          ) : (
-            <Component {...pageProps} />
-          )}
+            )}
+          </LocalizationProvider>
         </Layout>
       </SessionProvider>
     </QueryClientProvider>
