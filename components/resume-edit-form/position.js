@@ -12,7 +12,7 @@ const Position = ({ position }) => {
   );
   const [companyName, setCompanyName] = useState(position.companyName || "");
   const [location, setLocation] = useState(position.location || "");
-  const onRemove = async () => {
+  const onRemove = () => {
     updateMutation.mutate({
       field: "sections.experience",
       value: resume.sections.experience.filter(
@@ -37,7 +37,7 @@ const Position = ({ position }) => {
   };
 
   return (
-    <Box sx={{ background: "#fafafa", padding: "20px" }}>
+    <Box sx={{ background: "#fafafa", padding: "20px", mt: "20px" }}>
       <FormControl fullWidth>
         <TextField
           label="Title"

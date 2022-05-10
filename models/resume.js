@@ -43,7 +43,7 @@ const sections = new Schema({
     default: [],
   },
   education: {
-    type: EducationSchema,
+    type: [EducationSchema],
     default: {},
   },
 });

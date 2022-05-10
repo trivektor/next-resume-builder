@@ -1,6 +1,7 @@
 import { FormControl, Grid, Paper, TextField, Typography } from "@mui/material";
 import { useContext, useState } from "react";
 import ResumeEditFormContext from "./context";
+import InfoIcon from "@mui/icons-material/Info";
 
 const Intro = () => {
   const { resume, updateMutation } = useContext(ResumeEditFormContext);
@@ -31,7 +32,9 @@ const Intro = () => {
 
   return (
     <Paper sx={{ padding: "50px" }}>
-      <Typography variant="h4">Intro</Typography>
+      <Typography variant="h4" fontWeight={200} sx={{ mb: "30px" }}>
+        <InfoIcon /> Intro
+      </Typography>
       <FormControl fullWidth margin="normal">
         <Grid container spacing={2}>
           <Grid item xs={6}>

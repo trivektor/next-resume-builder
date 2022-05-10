@@ -1,6 +1,7 @@
 import { Typography } from "@mui/material";
 import Intro from "./intro";
 import Experience from "./experience";
+import Education from "./education";
 import ResumeEditFormContext from "./context";
 import { useMutation, useQueryClient, useQuery } from "react-query";
 import { Fragment } from "react";
@@ -36,7 +37,7 @@ const ResumeEditForm = ({ resumeId }) => {
 
   return (
     <Fragment>
-      <Typography variant="h4" sx={{ mb: "20px" }}>
+      <Typography variant="h4" sx={{ mb: "20px" }} fontWeight="200">
         Edit Resume
       </Typography>
       {data && (
@@ -46,6 +47,7 @@ const ResumeEditForm = ({ resumeId }) => {
           <div style={{ width: "70%" }}>
             <Intro />
             <Experience />
+            <Education />
           </div>
         </ResumeEditFormContext.Provider>
       )}
