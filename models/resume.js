@@ -33,6 +33,11 @@ const EducationSchema = new Schema({
   description: String,
 });
 
+const SkillSchema = new Schema({
+  skill: String,
+  description: String,
+});
+
 const sections = new Schema({
   intro: {
     type: IntroSchema,
@@ -44,6 +49,10 @@ const sections = new Schema({
   },
   education: {
     type: [EducationSchema],
+    default: {},
+  },
+  skills: {
+    type: [SkillSchema],
     default: {},
   },
 });

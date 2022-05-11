@@ -22,7 +22,7 @@ const ResumeForm = ({ resume }) => {
       >
         <TextField
           fullWidth
-          variant="standard"
+          variant="filled"
           margin="normal"
           label="Title"
           value={title}
@@ -31,7 +31,7 @@ const ResumeForm = ({ resume }) => {
         <TextField
           multiline
           fullWidth
-          variant="standard"
+          variant="filled"
           margin="normal"
           label="Description"
           value={description}

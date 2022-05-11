@@ -41,20 +41,23 @@ const Position = ({ position }) => {
       <FormControl fullWidth>
         <TextField
           label="Title"
-          variant="standard"
+          variant="filled"
+          helperText="Example: Staff Engineer"
           value={title}
           onChange={(event) => setTitle(event.target.value)}
           onBlur={() => onFieldChange("title", title)}
+          InputLabelProps={{ shrink: true }}
         />
       </FormControl>
       <FormControl fullWidth margin="normal">
         <TextField
           label="Employment Type"
-          variant="standard"
+          variant="filled"
           helperText="Example: Full time"
           value={employmentType}
           onChange={(event) => setEmploymentType(event.target.value)}
           onBlur={() => onFieldChange("employmentType", employmentType)}
+          InputLabelProps={{ shrink: true }}
         />
       </FormControl>
       <FormControl fullWidth margin="normal">
@@ -63,20 +66,24 @@ const Position = ({ position }) => {
             <TextField
               fullWidth
               label="Company Name"
-              variant="standard"
+              variant="filled"
+              helperText="Example: Amazon"
               value={companyName}
               onChange={(event) => setCompanyName(event.target.value)}
               onBlur={() => onFieldChange("companyName", companyName)}
+              InputLabelProps={{ shrink: true }}
             />
           </Grid>
           <Grid item xs={6}>
             <TextField
               fullWidth
               label="Location"
-              variant="standard"
+              variant="filled"
+              helperText="Redmond, WA"
               value={location}
               onChange={(event) => setLocation(event.target.value)}
               onBlur={() => onFieldChange("location", location)}
+              InputLabelProps={{ shrink: true }}
             />
           </Grid>
         </Grid>
@@ -87,22 +94,24 @@ const Position = ({ position }) => {
             <TextField
               fullWidth
               label="Start Date"
-              variant="standard"
+              variant="filled"
               helperText="Example: 08/2018"
               value={startDate}
               onChange={(event) => setStartDate(event.target.value)}
               onBlur={() => onFieldChange("startDate", startDate)}
+              InputLabelProps={{ shrink: true }}
             />
           </Grid>
           <Grid item xs={6}>
             <TextField
               fullWidth
               label="End Date"
-              variant="standard"
+              variant="filled"
               helperText="Example: 08/2021"
               value={endDate}
               onChange={(event) => setEndDate(event.target.value)}
               onBlur={() => onFieldChange("endDate", endDate)}
+              InputLabelProps={{ shrink: true }}
             />
           </Grid>
         </Grid>
@@ -110,11 +119,12 @@ const Position = ({ position }) => {
       <FormControl fullWidth margin="normal">
         <TextField
           label="Industry"
-          variant="standard"
+          variant="filled"
           helperText="Example: Computer Software"
           value={industry}
           onChange={(event) => setIndustry(event.target.value)}
           onBlur={() => onFieldChange("industry", industry)}
+          InputLabelProps={{ shrink: true }}
         />
       </FormControl>
       <FormControl fullWidth margin="normal">
@@ -122,10 +132,11 @@ const Position = ({ position }) => {
           multiline
           rows={5}
           label="Description"
-          variant="standard"
+          variant="filled"
           value={description}
           onChange={(event) => setDescription(event.target.value)}
           onBlur={() => onFieldChange("description", description)}
+          InputLabelProps={{ shrink: true }}
         />
       </FormControl>
       <FormControl margin="normal">

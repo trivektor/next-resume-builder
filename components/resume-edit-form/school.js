@@ -35,7 +35,8 @@ const School = ({ school }) => {
       <FormControl fullWidth margin="normal">
         <TextField
           label="School"
-          variant="standard"
+          variant="filled"
+          helperText="Example: Univeristy of Toronto"
           value={_school}
           onChange={(event) => setSchool(event.target.value)}
           onBlur={() => onFieldChange("school", _school)}
@@ -44,7 +45,8 @@ const School = ({ school }) => {
       <FormControl fullWidth margin="normal">
         <TextField
           label="Degree"
-          variant="standard"
+          variant="filled"
+          helperText="Example: Bachelor of Science"
           value={degree}
           onChange={(event) => setDegree(event.target.value)}
           onBlur={() => onFieldChange("degree", degree)}
@@ -53,8 +55,9 @@ const School = ({ school }) => {
       <FormControl fullWidth margin="normal">
         <TextField
           label="Field of Study"
-          variant="standard"
-          value={degree}
+          variant="filled"
+          helperText="Example: Computer Science, Math, Polytics"
+          value={fieldOfStudy}
           onChange={(event) => setFieldOfStudy(event.target.value)}
           onBlur={() => onFieldChange("fieldOfStudy", fieldOfStudy)}
         />
@@ -65,7 +68,7 @@ const School = ({ school }) => {
             <TextField
               fullWidth
               label="Start Date"
-              variant="standard"
+              variant="filled"
               helperText="Example: 08/2018"
               value={startDate}
               onChange={(event) => setStartDate(event.target.value)}
@@ -76,7 +79,7 @@ const School = ({ school }) => {
             <TextField
               fullWidth
               label="End Date"
-              variant="standard"
+              variant="filled"
               helperText="Example: 08/2021"
               value={endDate}
               onChange={(event) => setEndDate(event.target.value)}
@@ -90,7 +93,7 @@ const School = ({ school }) => {
           multiline
           rows={5}
           label="Description"
-          variant="standard"
+          variant="filled"
           value={description}
           onChange={(event) => setDescription(event.target.value)}
           onBlur={() => onFieldChange("description", description)}
