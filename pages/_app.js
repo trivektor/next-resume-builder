@@ -7,6 +7,15 @@ import Head from "next/head";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+
+const theme = createTheme({
+  palette: {
+    background: {
+      default: "#eee",
+    },
+  },
+});
 
 export default function App({
   Component,
@@ -27,16 +36,18 @@ export default function App({
           <meta name="viewport" content="initial-scale=1, width=device-width" />
         </Head>
         <Layout>
-          <LocalizationProvider dateAdapter={AdapterDateFns}>
-            <CssBaseline />
-            {Component.auth ? (
-              <AuthProtected>
+          <ThemeProvider theme={theme}>
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+              <CssBaseline />
+              {Component.auth ? (
+                <AuthProtected>
+                  <Component {...pageProps} />
+                </AuthProtected>
+              ) : (
                 <Component {...pageProps} />
-              </AuthProtected>
-            ) : (
-              <Component {...pageProps} />
-            )}
-          </LocalizationProvider>
+              )}
+            </LocalizationProvider>
+          </ThemeProvider>
         </Layout>
       </SessionProvider>
     </QueryClientProvider>
