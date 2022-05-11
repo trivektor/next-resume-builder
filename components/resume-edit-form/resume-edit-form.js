@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Typography, CircularProgress } from "@mui/material";
 import Intro from "./intro";
 import Experience from "./experience";
 import Education from "./education";
@@ -9,7 +9,7 @@ import { Fragment } from "react";
 import Skills from "./skills";
 
 const ResumeEditForm = ({ resumeId }) => {
-  const { data } = useQuery(["resumeEdit", resumeId], async () => {
+  const { data, isLoading } = useQuery(["resumeEdit", resumeId], async () => {
     const response = await fetch(`/api/resumes/${resumeId}/show`, {
       headers: {
         Accept: "application/json",
@@ -42,7 +42,9 @@ const ResumeEditForm = ({ resumeId }) => {
       <Typography variant="h4" sx={{ mb: "20px" }} fontWeight="200">
         Edit Resume
       </Typography>
-      {data && (
+      {isLoading ? (
+        <CircularProgress />
+      ) : (
         <ResumeEditFormContext.Provider
           value={{ updateMutation, resume: data }}
         >

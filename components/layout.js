@@ -9,6 +9,7 @@ import LoginIcon from "@mui/icons-material/Login";
 import PersonIcon from "@mui/icons-material/Person";
 import { Fragment } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Layout = ({ children }) => {
   const { data: session } = useSession();
@@ -29,9 +30,16 @@ const Layout = ({ children }) => {
           width={48}
           height={48}
         />
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Next Resume Builder
-        </Typography>
+        <Link href="/" passHref>
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{ flexGrow: 1, cursor: "pointer" }}
+          >
+            Next Resume Builder
+          </Typography>
+        </Link>
+
         <div>
           {session ? (
             <Fragment>

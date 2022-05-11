@@ -1,4 +1,4 @@
-import { Box, Button, Grid } from "@mui/material";
+import { Box, Button, Grid, CircularProgress } from "@mui/material";
 import Link from "next/link";
 import { Fragment } from "react";
 import ResumeCard from "./resume-card";
@@ -6,7 +6,7 @@ import AddIcon from "@mui/icons-material/Add";
 import { useQuery } from "react-query";
 
 const Resumes = () => {
-  const { data = [] } = useQuery("resumes", async () => {
+  const { data = [], isLoading } = useQuery("resumes", async () => {
     const response = await fetch("/api/resumes", {
       headers: {
         Accept: "application/json",
@@ -25,13 +25,17 @@ const Resumes = () => {
         </Button>
       </Link>
       <Box sx={{ mt: 2 }}>
-        <Grid container spacing={2}>
-          {data.map((resume) => (
-            <Grid item xs={3} key={resume._id}>
-              <ResumeCard resume={resume} />
-            </Grid>
-          ))}
-        </Grid>
+        {isLoading ? (
+          <CircularProgress />
+        ) : (
+          <Grid container spacing={2}>
+            {data.map((resume) => (
+              <Grid item xs={3} key={resume._id}>
+                <ResumeCard resume={resume} />
+              </Grid>
+            ))}
+          </Grid>
+        )}
       </Box>
     </Fragment>
   );
