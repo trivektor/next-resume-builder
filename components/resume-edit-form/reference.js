@@ -63,6 +63,7 @@ const Reference = ({ reference }) => {
               onChange={(event) => setEmail(event.target.value)}
               onBlur={() => onFieldChange("email", email)}
               InputLabelProps={{ shrink: true }}
+              inputProps={{ type: "email" }}
             />
           </Grid>
           <Grid item xs={6}>
@@ -74,6 +75,7 @@ const Reference = ({ reference }) => {
               onChange={(event) => setPhone(event.target.value)}
               onBlur={() => onFieldChange("phone", phone)}
               InputLabelProps={{ shrink: true }}
+              inputProps={{ type: "tel" }}
             />
           </Grid>
         </Grid>

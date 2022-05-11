@@ -23,6 +23,8 @@ const Intro = () => {
   const [industry, setIndustry] = useState(
     resume.sections.intro.industry || ""
   );
+  const [email, setEmail] = useState(resume.sections.intro.email || "");
+  const [phone, setPhone] = useState(resume.sections.intro.phone || "");
   const onFieldChange = (field, value) => {
     updateMutation.mutate({
       field: `sections.intro.${field}`,
@@ -106,6 +108,34 @@ const Intro = () => {
           onBlur={() => onFieldChange("industry", industry)}
           InputLabelProps={{ shrink: true }}
         />
+      </FormControl>
+      <FormControl fullWidth margin="normal">
+        <Grid container spacing={2}>
+          <Grid item xs={6}>
+            <TextField
+              fullWidth
+              label="Email"
+              variant="filled"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              onBlur={() => onFieldChange("email", email)}
+              InputLabelProps={{ shrink: true }}
+              inputProps={{ type: "email" }}
+            />
+          </Grid>
+          <Grid item xs={6}>
+            <TextField
+              fullWidth
+              label="Phone"
+              variant="filled"
+              value={phone}
+              onChange={(event) => setPhone(event.target.value)}
+              onBlur={() => onFieldChange("phone", phone)}
+              InputLabelProps={{ shrink: true }}
+              inputProps={{ type: "tel" }}
+            />
+          </Grid>
+        </Grid>
       </FormControl>
     </Paper>
   );

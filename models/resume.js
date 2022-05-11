@@ -9,6 +9,8 @@ const IntroSchema = new Schema({
   pronouns: String,
   headline: String,
   industry: String,
+  email: String,
+  phone: String,
 });
 
 const ExperienceSchema = new Schema({
