@@ -1,3 +1,4 @@
+import { CircularProgress } from "@mui/material";
 import { useSession, signIn } from "next-auth/react";
 import { Fragment, useEffect } from "react";
 
@@ -14,7 +15,7 @@ const AuthProtected = ({ children }) => {
   }, [isUser, status]);
 
   if (status === "loading") {
-    return "Loading...";
+    return <CircularProgress />;
   }
 
   if (isUser) {
