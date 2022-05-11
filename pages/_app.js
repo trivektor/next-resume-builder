@@ -1,4 +1,3 @@
-import "../styles/globals.css";
 import { SessionProvider } from "next-auth/react";
 import Layout from "../components/layout";
 import AuthProtected from "../components/auth-protected";
