@@ -40,6 +40,7 @@ const School = ({ school }) => {
           value={_school}
           onChange={(event) => setSchool(event.target.value)}
           onBlur={() => onFieldChange("school", _school)}
+          InputLabelProps={{ shrink: true }}
         />
       </FormControl>
       <FormControl fullWidth margin="normal">
@@ -50,6 +51,7 @@ const School = ({ school }) => {
           value={degree}
           onChange={(event) => setDegree(event.target.value)}
           onBlur={() => onFieldChange("degree", degree)}
+          InputLabelProps={{ shrink: true }}
         />
       </FormControl>
       <FormControl fullWidth margin="normal">
@@ -60,6 +62,7 @@ const School = ({ school }) => {
           value={fieldOfStudy}
           onChange={(event) => setFieldOfStudy(event.target.value)}
           onBlur={() => onFieldChange("fieldOfStudy", fieldOfStudy)}
+          InputLabelProps={{ shrink: true }}
         />
       </FormControl>
       <FormControl fullWidth margin="normal">
@@ -73,6 +76,7 @@ const School = ({ school }) => {
               value={startDate}
               onChange={(event) => setStartDate(event.target.value)}
               onBlur={() => onFieldChange("startDate", startDate)}
+              InputLabelProps={{ shrink: true }}
             />
           </Grid>
           <Grid item xs={6} margin="normal">
@@ -84,6 +88,7 @@ const School = ({ school }) => {
               value={endDate}
               onChange={(event) => setEndDate(event.target.value)}
               onBlur={() => onFieldChange("endDate", endDate)}
+              InputLabelProps={{ shrink: true }}
             />
           </Grid>
         </Grid>
@@ -97,6 +102,7 @@ const School = ({ school }) => {
           value={description}
           onChange={(event) => setDescription(event.target.value)}
           onBlur={() => onFieldChange("description", description)}
+          InputLabelProps={{ shrink: true }}
         />
       </FormControl>
       <FormControl margin="normal">

@@ -32,6 +32,7 @@ const Skill = ({ skill }) => {
           helperText="Example: JavaScript"
           onChange={(event) => setSkill(event.target.value)}
           onBlur={() => onFieldChange("skill", _skill)}
+          InputLabelProps={{ shrink: true }}
         />
       </FormControl>
       <FormControl fullWidth margin="normal">
@@ -44,6 +45,7 @@ const Skill = ({ skill }) => {
           value={description}
           onChange={(event) => setDescription(event.target.value)}
           onBlur={() => onFieldChange("description", description)}
+          InputLabelProps={{ shrink: true }}
         />
       </FormControl>
       <FormControl margin="normal">

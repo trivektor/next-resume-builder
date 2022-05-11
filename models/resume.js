@@ -38,6 +38,13 @@ const SkillSchema = new Schema({
   description: String,
 });
 
+const ReferenceSchema = new Schema({
+  fullName: String,
+  company: String,
+  phone: String,
+  email: String,
+});
+
 const sections = new Schema({
   intro: {
     type: IntroSchema,
@@ -53,6 +60,10 @@ const sections = new Schema({
   },
   skills: {
     type: [SkillSchema],
+    default: {},
+  },
+  references: {
+    type: [ReferenceSchema],
     default: {},
   },
 });

@@ -2,7 +2,7 @@ import { Typography } from "@mui/material";
 import Intro from "./intro";
 import Experience from "./experience";
 import Education from "./education";
-
+import References from "./references";
 import ResumeEditFormContext from "./context";
 import { useMutation, useQueryClient, useQuery } from "react-query";
 import { Fragment } from "react";
@@ -51,6 +51,7 @@ const ResumeEditForm = ({ resumeId }) => {
             <Experience />
             <Education />
             <Skills />
+            <References />
           </div>
         </ResumeEditFormContext.Provider>
       )}
