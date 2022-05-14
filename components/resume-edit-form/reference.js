@@ -12,7 +12,7 @@ const Reference = ({ reference }) => {
   const [phone, setPhone] = useState(reference.phone || "");
   const onRemove = () => {
     updateMutation.mutate({
-      field: "sections.experience",
+      field: "sections.references",
       value: resume.sections.references.filter(
         ({ _id }) => _id !== reference._id
       ),

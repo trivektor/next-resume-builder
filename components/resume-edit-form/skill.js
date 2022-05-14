@@ -8,7 +8,12 @@ const Skill = ({ skill }) => {
   const { resume, updateMutation } = useContext(ResumeEditFormContext);
   const [_skill, setSkill] = useState(skill.skill || "");
   const [description, setDescription] = useState(skill.description || "");
-  const onRemove = () => {};
+  const onRemove = () => {
+    updateMutation.mutate({
+      field: "sections.skills",
+      value: resume.sections.skills.filter(({ _id }) => _id !== skill._id),
+    });
+  };
   const onFieldChange = (field, value) => {
     const skills = cloneDeep(resume.sections.skills);
     const updatedSkillIndex = findIndex(skills, { _id: skill._id });
