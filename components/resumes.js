@@ -23,7 +23,7 @@ const Resumes = () => {
         <Button variant="contained" color="success" startIcon={<AddIcon />}>
           Create Resume
         </Button>
-      </Link>
+      </Link>{" "}
       <Box sx={{ mt: 2 }}>
         {isLoading ? (
           <CircularProgress />

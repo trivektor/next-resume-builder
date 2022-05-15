@@ -3,6 +3,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import ResumeEditFormContext from "./context";
 import { useContext, useState } from "react";
 import { cloneDeep, findIndex } from "lodash";
+import TextGenrationModal from "./text-generation-modal";
 
 const Position = ({ position }) => {
   const { resume, updateMutation } = useContext(ResumeEditFormContext);
@@ -35,6 +36,7 @@ const Position = ({ position }) => {
       value: experience,
     });
   };
+  const [textGenerationModalOpen, setTextGenerationModalOpen] = useState(false);
 
   return (
     <Box sx={{ background: "#fafafa", padding: "20px", mt: "20px" }}>
@@ -133,10 +135,23 @@ const Position = ({ position }) => {
           rows={5}
           label="Description"
           variant="filled"
+          helperText={
+            <Button
+              size="small"
+              sx={{ padding: 0, textTransform: "none" }}
+              onClick={() => setTextGenerationModalOpen(true)}
+            >
+              Generate
+            </Button>
+          }
           value={description}
           onChange={(event) => setDescription(event.target.value)}
           onBlur={() => onFieldChange("description", description)}
           InputLabelProps={{ shrink: true }}
+        />
+        <TextGenrationModal
+          open={textGenerationModalOpen}
+          onClose={() => setTextGenerationModalOpen(false)}
         />
       </FormControl>
       <FormControl margin="normal">

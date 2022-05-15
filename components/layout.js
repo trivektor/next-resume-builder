@@ -25,7 +25,7 @@ const Layout = ({ children }) => {
     >
       <Toolbar>
         <Image
-          src="https://img.icons8.com/fluency/48/000000/resume.png"
+          src="https://img.icons8.com/color/48/000000/nfc-n.png"
           alt="Resume"
           width={48}
           height={48}
