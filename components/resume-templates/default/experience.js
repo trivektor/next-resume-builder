@@ -16,7 +16,7 @@ const Experience = () => {
         const {
           _id,
           title,
-          company,
+          companyName,
           employmentType,
           location,
           startDate,
@@ -27,7 +27,9 @@ const Experience = () => {
         return (
           <Fragment key={_id}>
             <strong>{title}</strong>
-            <div>{[company, employmentType].filter(Boolean).join(" · ")}</div>
+            <div>
+              {[companyName, employmentType].filter(Boolean).join(" · ")}
+            </div>
             <div>{[startDate, endDate].filter(Boolean).join(" - ")}</div>
             <div>{location}</div>
             <div>{description}</div>
