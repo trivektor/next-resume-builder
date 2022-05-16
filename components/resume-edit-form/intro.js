@@ -25,6 +25,7 @@ const Intro = () => {
   );
   const [email, setEmail] = useState(resume.sections.intro.email || "");
   const [phone, setPhone] = useState(resume.sections.intro.phone || "");
+  const [summary, setSummary] = useState(resume.sections.intro.summary || "");
   const onFieldChange = (field, value) => {
     updateMutation.mutate({
       field: `sections.intro.${field}`,
@@ -47,7 +48,6 @@ const Intro = () => {
               value={firstname}
               onChange={(event) => setFirstname(event.target.value)}
               onBlur={() => onFieldChange("firstname", firstname)}
-              InputLabelProps={{ shrink: true }}
             />
           </Grid>
           <Grid item xs={6}>
@@ -58,7 +58,6 @@ const Intro = () => {
               value={lastname}
               onChange={(event) => setLastname(event.target.value)}
               onBlur={() => onFieldChange("lastname", lastname)}
-              InputLabelProps={{ shrink: true }}
             />
           </Grid>
         </Grid>
@@ -71,7 +70,6 @@ const Intro = () => {
           value={additionalName}
           onChange={(event) => setAdditionalName(event.target.value)}
           onBlur={() => onFieldChange("additionalName", additionalName)}
-          InputLabelProps={{ shrink: true }}
         />
       </FormControl>
       <FormControl fullWidth margin="normal">
@@ -82,7 +80,6 @@ const Intro = () => {
           value={namePronunciation}
           onChange={(event) => setNamePronunciation(event.target.value)}
           onBlur={() => onFieldChange("namePronunciation", namePronunciation)}
-          InputLabelProps={{ shrink: true }}
         />
       </FormControl>
       <FormControl fullWidth margin="normal">
@@ -94,7 +91,6 @@ const Intro = () => {
           value={headline}
           onChange={(event) => setHeadline(event.target.value)}
           onBlur={() => onFieldChange("headline", headline)}
-          InputLabelProps={{ shrink: true }}
         />
       </FormControl>
       <FormControl fullWidth margin="normal">
@@ -106,7 +102,6 @@ const Intro = () => {
           value={industry}
           onChange={(event) => setIndustry(event.target.value)}
           onBlur={() => onFieldChange("industry", industry)}
-          InputLabelProps={{ shrink: true }}
         />
       </FormControl>
       <FormControl fullWidth margin="normal">
@@ -136,6 +131,18 @@ const Intro = () => {
             />
           </Grid>
         </Grid>
+      </FormControl>
+      <FormControl fullWidth margin="normal">
+        <TextField
+          multiline
+          rows={2}
+          label="Professional Summary"
+          variant="filled"
+          value={summary}
+          onChange={(event) => setSummary(event.target.value)}
+          onBlur={() => onFieldChange("summary", summary)}
+          InputLabelProps={{ shrink: true }}
+        />
       </FormControl>
     </Paper>
   );

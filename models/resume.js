@@ -11,6 +11,7 @@ const IntroSchema = new Schema({
   industry: String,
   email: String,
   phone: String,
+  summary: String,
 });
 
 const ExperienceSchema = new Schema({

@@ -1,9 +1,6 @@
 import { useSession, signIn, signOut } from "next-auth/react";
 import { styled } from "@mui/material/styles";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
+import { AppBar, Box, Toolbar, Button, Typography } from "@mui/material";
 import LogoutIcon from "@mui/icons-material/Logout";
 import LoginIcon from "@mui/icons-material/Login";
 import PersonIcon from "@mui/icons-material/Person";
@@ -15,7 +12,6 @@ const Layout = ({ children }) => {
   const { data: session } = useSession();
   const navbar = (
     <AppBar
-      position="static"
       sx={{
         bgcolor: "white",
         boxShadow: "none",
@@ -71,7 +67,7 @@ const Layout = ({ children }) => {
   return (
     <Fragment>
       {navbar}
-      <main style={{ padding: 20 }}>{children}</main>
+      <Box sx={{ mt: 8 }}>{children}</Box>
     </Fragment>
   );
 };

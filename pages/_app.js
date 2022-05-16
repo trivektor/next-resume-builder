@@ -14,6 +14,15 @@ const theme = createTheme({
       default: "#eee",
     },
   },
+  components: {
+    MuiTextField: {
+      defaultProps: {
+        InputLabelProps: {
+          shrink: true,
+        },
+      },
+    },
+  },
 });
 
 export default function App({
