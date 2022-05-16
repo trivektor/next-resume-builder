@@ -8,7 +8,8 @@ const Intro = () => {
       sections: { intro },
     },
   } = useContext(RenderedResumeContext);
-  const { firstname, lastname, headline, industry, email, phone } = intro;
+  const { firstname, lastname, headline, industry, email, phone, summary } =
+    intro;
 
   return (
     <Fragment>
@@ -21,6 +22,7 @@ const Intro = () => {
         {email && <ListItem sx={{ padding: 0 }}>{email}</ListItem>}
         {phone && <ListItem sx={{ padding: 0 }}>{phone}</ListItem>}
       </List>
+      <p>{summary}</p>
     </Fragment>
   );
 };
