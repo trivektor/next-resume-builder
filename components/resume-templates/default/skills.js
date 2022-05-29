@@ -2,26 +2,25 @@ import { Box, Typography } from "@mui/material";
 import { Fragment, useContext } from "react";
 import { RenderedResumeContext } from "../../rendered-resume";
 
-const Education = () => {
+const Skills = () => {
   const {
     resume: {
-      sections: { education },
+      sections: { skills },
     },
   } = useContext(RenderedResumeContext);
 
   return (
     <Fragment>
       <Typography variant="h5" sx={{ mt: 2 }}>
-        Education
+        Skills
       </Typography>
-      {education.map((_school) => {
-        const { _id, school, fieldOfStudy, startDate, endDate } = _school;
+      {skills.map((_skill) => {
+        const { _id, skill, description } = _skill;
 
         return (
           <Box key={_id} sx={{ mt: 2 }}>
-            <strong>{school}</strong>
-            <div>{fieldOfStudy}</div>
-            <div>{[startDate, endDate].filter(Boolean).join(" - ")}</div>
+            <strong>{skill}</strong>
+            <p>{description}</p>
           </Box>
         );
       })}
@@ -29,4 +28,4 @@ const Education = () => {
   );
 };
 
-export default Education;
+export default Skills;

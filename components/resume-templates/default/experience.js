@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { Fragment, useContext } from "react";
 import { RenderedResumeContext } from "../../rendered-resume";
 
@@ -11,7 +11,9 @@ const Experience = () => {
 
   return (
     <Fragment>
-      <Typography variant="h5">Experience</Typography>
+      <Typography variant="h5" sx={{ mt: 2 }}>
+        Experience
+      </Typography>
       {experience.map((position) => {
         const {
           _id,
@@ -25,7 +27,7 @@ const Experience = () => {
         } = position;
 
         return (
-          <Fragment key={_id}>
+          <Box key={_id} sx={{ mt: 2 }}>
             <strong>{title}</strong>
             <div>
               {[companyName, employmentType].filter(Boolean).join(" · ")}
@@ -33,7 +35,7 @@ const Experience = () => {
             <div>{[startDate, endDate].filter(Boolean).join(" - ")}</div>
             <div>{location}</div>
             <div>{description}</div>
-          </Fragment>
+          </Box>
         );
       })}
     </Fragment>

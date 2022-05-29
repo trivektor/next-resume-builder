@@ -15,7 +15,7 @@ export default async function handler(req, res) {
   const html = renderToStaticMarkup(<RenderedResume resume={resume} />);
 
   pdf.create(html, options).toBuffer(function (err, buffer) {
-    res.setHeader("Content-Disposition", `attachchment; filename=${id}.pdf`);
+    res.setHeader("Content-Disposition", "attachchment; filename=resume.pdf");
     res.setHeader("Content-Type", "application/pdf");
     res.send(buffer);
   });
