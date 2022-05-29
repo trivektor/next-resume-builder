@@ -29,7 +29,7 @@ const Resumes = () => {
             Create Resume
           </Button>
         </Link>{" "}
-        <Box sx={{ mt: 2 }}>
+        <Box sx={{ mt: 3 }}>
           {isLoading ? (
             <CircularProgress />
           ) : (
