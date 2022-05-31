@@ -1,4 +1,5 @@
 import { Box, Typography } from "@mui/material";
+import { isEmpty } from "lodash";
 import { Fragment, useContext } from "react";
 import { RenderedResumeContext } from "../../rendered-resume";
 
@@ -8,6 +9,8 @@ const Skills = () => {
       sections: { skills },
     },
   } = useContext(RenderedResumeContext);
+
+  if (isEmpty(skills)) return null;
 
   return (
     <Fragment>
