@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Fragment } from "react";
 import ResumeCard from "./resume-card";
 import AddIcon from "@mui/icons-material/Add";
-import { useQuery } from "react-query";
+import { useMutation, useQuery, useQueryClient } from "react-query";
 import Head from "next/head";
 
 const Resumes = () => {
@@ -17,6 +17,28 @@ const Resumes = () => {
 
     return json.resumes;
   });
+  const queryClient = useQueryClient();
+  const createMutation = useMutation(
+    () => {
+      return fetch("/api/resumes/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title: "Untitled",
+        }),
+      });
+    },
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries("resumes");
+      },
+    }
+  );
+  const onCreate = () => {
+    createMutation.mutate();
+  };
 
   return (
     <Fragment>
@@ -24,18 +46,21 @@ const Resumes = () => {
         <title>Dashboard</title>
       </Head>
       <Box sx={{ p: 2 }}>
-        <Link href="/resumes/new" passHref>
-          <Button variant="contained" color="success" startIcon={<AddIcon />}>
-            Create Resume
-          </Button>
-        </Link>{" "}
+        <Button
+          variant="contained"
+          color="success"
+          startIcon={<AddIcon />}
+          onClick={onCreate}
+        >
+          Create Resume
+        </Button>{" "}
         <Box sx={{ mt: 3 }}>
           {isLoading ? (
             <CircularProgress />
           ) : (
-            <Grid container spacing={2}>
+            <Grid container spacing={5}>
               {data.map((resume) => (
-                <Grid item xs={3} key={resume._id}>
+                <Grid item key={resume._id} sx={{ width: 400 }}>
                   <ResumeCard resume={resume} />
                 </Grid>
               ))}

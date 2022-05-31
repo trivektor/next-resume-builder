@@ -27,6 +27,10 @@ export default async function handler(req, res) {
     return acc;
   }, {});
 
+  clonedSections.intro = resume.get("sections.intro");
+
+  delete clonedSections.intro._id;
+
   await Resume.create({
     title: resume.get("title"),
     description: resume.get("description"),

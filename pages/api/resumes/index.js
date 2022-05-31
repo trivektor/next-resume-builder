@@ -9,7 +9,7 @@ export default async function handler(req, res) {
 
   const resumes = await Resume.find({
     createdBy: session.user.email,
-  });
+  }).sort({ createdAt: "descending" });
 
   res.status(200).json({ resumes });
 }

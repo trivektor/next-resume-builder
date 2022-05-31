@@ -1,20 +1,25 @@
 import {
   Card,
-  CardHeader,
-  Avatar,
   CardContent,
-  CardActions,
   Button,
-  Paper,
   Typography,
-  List,
-  ListItem,
+  Stack,
+  Menu,
+  MenuItem,
+  ListItemIcon,
+  ListItemText,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import FileCopyIcon from "@mui/icons-material/FileCopy";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import ArticleIcon from "@mui/icons-material/Article";
+import Divider from "@mui/material/Divider";
+import { format } from "date-fns";
+import RenderedResume from "./rendered-resume";
+import { useState } from "react";
 import { useMutation, useQueryClient } from "react-query";
-import Link from "next/link";
+import { useRouter } from "next/router";
 
 const ResumeCard = ({ resume }) => {
   const queryClient = useQueryClient();
@@ -50,50 +55,80 @@ const ResumeCard = ({ resume }) => {
   const onClone = () => {
     cloneMutation.mutate();
   };
+  const [menuAnchorEl, setMenuAnchorEl] = useState(null);
+  const isMenuOpen = Boolean(menuAnchorEl);
+  const handleOpenMenu = (event) => {
+    setMenuAnchorEl(event.currentTarget);
+  };
+  const handleCloseMenu = () => setMenuAnchorEl(null);
+  const router = useRouter();
+  const onEdit = () => {
+    router.push(`/resumes/${resume._id}/edit`);
+  };
 
   return (
-    <Paper elevation={2} sx={{ p: 4 }}>
-      <Typography variant="h5">{resume.title}</Typography>
-      <Typography>{resume.description}</Typography>
-      <List>
-        <ListItem sx={{ pr: 0, pl: 0 }}>
-          <Link href={`/resumes/${resume._id}/edit`} passHref>
-            <Button
-              fullWidth
-              variant="outlined"
-              color="primary"
-              startIcon={<EditIcon />}
-              size="small"
-            >
-              Edit
-            </Button>
-          </Link>
-        </ListItem>
-        <ListItem sx={{ pr: 0, pl: 0 }}>
-          <Button
-            fullWidth
-            variant="outlined"
-            color="error"
-            startIcon={<DeleteIcon />}
-            size="small"
-            onClick={onDelete}
-          >
-            Delete
+    <Card sx={{ padding: 0 }} elevation={1}>
+      <CardContent
+        sx={{
+          padding: 0,
+          height: 350,
+          overflow: "hidden",
+          transform: "perspective(600px) translateZ(-200px)",
+        }}
+      >
+        <RenderedResume resume={resume} />
+      </CardContent>
+      <Divider />
+      <Stack
+        direction="row"
+        spacing={2}
+        sx={{ padding: 2 }}
+        justifyContent="space-between"
+        alignItems="center"
+      >
+        <div>
+          <Stack direction="row" spacing={1} justifyContent="space-between">
+            <ArticleIcon fontSize="large" color="primary" />
+            <div>
+              <Typography>{resume.title}</Typography>
+              <Typography variant="subtitle2" color="#9e9e9e">
+                Last updated{" "}
+                {format(new Date(resume.updatedAt), "LLL dd, yyyy")}
+              </Typography>
+            </div>
+          </Stack>
+        </div>
+        <div>
+          <Button onClick={handleOpenMenu} variant="outlined" disableElevation>
+            <MoreHorizIcon />
           </Button>
-        </ListItem>
-        <ListItem sx={{ pr: 0, pl: 0 }}>
-          <Button
-            fullWidth
-            variant="outlined"
-            startIcon={<FileCopyIcon />}
-            size="small"
-            onClick={onClone}
+          <Menu
+            open={isMenuOpen}
+            onClose={handleCloseMenu}
+            anchorEl={menuAnchorEl}
           >
-            Clone
-          </Button>
-        </ListItem>
-      </List>
-    </Paper>
+            <MenuItem onClick={onEdit}>
+              <ListItemIcon>
+                <EditIcon />
+              </ListItemIcon>
+              <ListItemText>Edit Resume</ListItemText>
+            </MenuItem>
+            <MenuItem onClick={onClone}>
+              <ListItemIcon>
+                <FileCopyIcon />
+              </ListItemIcon>
+              <ListItemText>Clone Resume</ListItemText>
+            </MenuItem>
+            <MenuItem onClick={onDelete}>
+              <ListItemIcon>
+                <DeleteIcon />
+              </ListItemIcon>
+              <ListItemText>Delete Resume</ListItemText>
+            </MenuItem>
+          </Menu>
+        </div>
+      </Stack>
+    </Card>
   );
 };
 

@@ -23,6 +23,7 @@ const Preview = () => {
         sx={{
           mt: 2,
           p: 4,
+          minHeight: 620,
         }}
       >
         <RenderedResume resume={resume} />

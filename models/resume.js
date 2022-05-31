@@ -2,8 +2,14 @@ import mongoose from "mongoose";
 const { Schema } = mongoose;
 
 const IntroSchema = new Schema({
-  firstname: String,
-  lastname: String,
+  firstname: {
+    type: String,
+    default: "First",
+  },
+  lastname: {
+    type: String,
+    default: "Last",
+  },
   additionalName: String,
   namePronunciation: String,
   pronouns: String,
@@ -71,15 +77,19 @@ const sections = new Schema({
   },
 });
 
-const ResumeSchema = new Schema({
-  title: String,
-  description: String,
-  date: { type: Date, default: Date.now },
-  createdBy: String,
-  sections: {
-    type: sections,
-    default: {},
+const ResumeSchema = new Schema(
+  {
+    title: String,
+    description: String,
+    createdBy: String,
+    sections: {
+      type: sections,
+      default: {},
+    },
   },
-});
+  {
+    timestamps: true,
+  }
+);
 
 export default mongoose.models.Resume || mongoose.model("Resume", ResumeSchema);
