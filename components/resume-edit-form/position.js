@@ -39,7 +39,7 @@ const Position = ({ position }) => {
   const [textGenerationModalOpen, setTextGenerationModalOpen] = useState(false);
 
   return (
-    <Box sx={{ background: "#fafafa", padding: "20px", mt: "20px" }}>
+    <Box sx={{ background: "#fafafa", p: 2, mt: 2 }}>
       <FormControl fullWidth>
         <TextField
           label="Title"
@@ -51,7 +51,7 @@ const Position = ({ position }) => {
           InputLabelProps={{ shrink: true }}
         />
       </FormControl>
-      <FormControl fullWidth margin="normal">
+      <FormControl fullWidth sx={{ mt: 2 }}>
         <TextField
           label="Employment Type"
           variant="filled"
@@ -62,7 +62,7 @@ const Position = ({ position }) => {
           InputLabelProps={{ shrink: true }}
         />
       </FormControl>
-      <FormControl fullWidth margin="normal">
+      <FormControl fullWidth sx={{ mt: 2 }}>
         <Grid container spacing={2}>
           <Grid item xs={6}>
             <TextField
@@ -90,7 +90,7 @@ const Position = ({ position }) => {
           </Grid>
         </Grid>
       </FormControl>
-      <FormControl fullWidth margin="normal">
+      <FormControl fullWidth sx={{ mt: 2 }}>
         <Grid container spacing={2}>
           <Grid item xs={6}>
             <TextField
@@ -118,7 +118,7 @@ const Position = ({ position }) => {
           </Grid>
         </Grid>
       </FormControl>
-      <FormControl fullWidth margin="normal">
+      <FormControl fullWidth sx={{ mt: 2 }}>
         <TextField
           label="Industry"
           variant="filled"
@@ -129,7 +129,7 @@ const Position = ({ position }) => {
           InputLabelProps={{ shrink: true }}
         />
       </FormControl>
-      <FormControl fullWidth margin="normal">
+      <FormControl fullWidth sx={{ mt: 2 }}>
         <TextField
           multiline
           rows={5}
@@ -154,7 +154,7 @@ const Position = ({ position }) => {
           onClose={() => setTextGenerationModalOpen(false)}
         />
       </FormControl>
-      <FormControl margin="normal">
+      <FormControl sx={{ mt: 2 }}>
         <Button
           variant="contained"
           size="small"

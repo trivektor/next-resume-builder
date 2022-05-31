@@ -15,8 +15,8 @@ const Experience = () => {
   };
 
   return (
-    <Paper sx={{ padding: "50px", mt: "30px" }}>
-      <Typography variant="h4" sx={{ mb: "20px" }} fontWeight="200">
+    <Paper sx={{ p: 3, mt: 3 }}>
+      <Typography variant="h4" sx={{ mb: 2 }} fontWeight="200">
         <WorkIcon /> Experience
       </Typography>
       <Button variant="contained" onClick={onAdd} startIcon={<AddIcon />}>

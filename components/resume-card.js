@@ -8,6 +8,8 @@ import {
   MenuItem,
   ListItemIcon,
   ListItemText,
+  Box,
+  Grid,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
@@ -70,7 +72,7 @@ const ResumeCard = ({ resume }) => {
     <Card sx={{ padding: 0 }} elevation={1}>
       <CardContent
         sx={{
-          padding: 0,
+          p: 0,
           height: 350,
           overflow: "hidden",
           transform: "perspective(600px) translateZ(-200px)",
@@ -79,26 +81,23 @@ const ResumeCard = ({ resume }) => {
         <RenderedResume resume={resume} />
       </CardContent>
       <Divider />
-      <Stack
-        direction="row"
-        spacing={2}
-        sx={{ padding: 2 }}
-        justifyContent="space-between"
-        alignItems="center"
-      >
-        <div>
-          <Stack direction="row" spacing={1} justifyContent="space-between">
-            <ArticleIcon fontSize="large" color="primary" />
-            <div>
-              <Typography>{resume.title}</Typography>
-              <Typography variant="subtitle2" color="#9e9e9e">
-                Last updated{" "}
-                {format(new Date(resume.updatedAt), "LLL dd, yyyy")}
-              </Typography>
-            </div>
-          </Stack>
-        </div>
-        <div>
+      <Stack direction="row" sx={{ p: 2 }} justifyContent="space-between">
+        <ArticleIcon />
+        <Box sx={{ width: "65%" }}>
+          <Typography
+            sx={{
+              whiteSpace: "nowrap",
+              textOverflow: "ellipsis",
+              overflow: "hidden",
+            }}
+          >
+            {resume.title}
+          </Typography>
+          <Typography variant="subtitle2" color="#9e9e9e">
+            Last updated {format(new Date(resume.updatedAt), "LLL dd, yyyy")}
+          </Typography>
+        </Box>
+        <Box>
           <Button onClick={handleOpenMenu} variant="outlined" disableElevation>
             <MoreHorizIcon />
           </Button>
@@ -126,7 +125,7 @@ const ResumeCard = ({ resume }) => {
               <ListItemText>Delete Resume</ListItemText>
             </MenuItem>
           </Menu>
-        </div>
+        </Box>
       </Stack>
     </Card>
   );

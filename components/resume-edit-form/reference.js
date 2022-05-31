@@ -31,8 +31,8 @@ const Reference = ({ reference }) => {
   };
 
   return (
-    <Box sx={{ background: "#fafafa", padding: "20px", mt: "20px" }}>
-      <FormControl fullWidth margin="normal">
+    <Box sx={{ background: "#fafafa", p: 2, mt: 2 }}>
+      <FormControl fullWidth>
         <TextField
           label="Full name"
           variant="filled"
@@ -42,7 +42,7 @@ const Reference = ({ reference }) => {
           InputLabelProps={{ shrink: true }}
         />
       </FormControl>
-      <FormControl fullWidth margin="normal">
+      <FormControl fullWidth sx={{ mt: 2 }}>
         <TextField
           label="Company"
           variant="filled"
@@ -52,7 +52,7 @@ const Reference = ({ reference }) => {
           InputLabelProps={{ shrink: true }}
         />
       </FormControl>
-      <FormControl fullWidth margin="normal">
+      <FormControl fullWidth sx={{ mt: 2 }}>
         <Grid container spacing={2}>
           <Grid item xs={6}>
             <TextField

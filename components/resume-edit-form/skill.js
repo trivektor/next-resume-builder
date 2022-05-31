@@ -27,8 +27,8 @@ const Skill = ({ skill }) => {
   };
 
   return (
-    <Box sx={{ background: "#fafafa", padding: "20px", mt: "20px" }}>
-      <FormControl fullWidth margin="normal">
+    <Box sx={{ background: "#fafafa", p: 2, mt: 2 }}>
+      <FormControl fullWidth>
         <TextField
           fullWidth
           label="Skill"
@@ -40,7 +40,7 @@ const Skill = ({ skill }) => {
           InputLabelProps={{ shrink: true }}
         />
       </FormControl>
-      <FormControl fullWidth margin="normal">
+      <FormControl fullWidth sx={{ mt: 2 }}>
         <TextField
           fullWidth
           multiline

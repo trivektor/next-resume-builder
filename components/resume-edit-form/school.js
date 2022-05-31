@@ -31,8 +31,8 @@ const School = ({ school }) => {
   };
 
   return (
-    <Box sx={{ background: "#fafafa", padding: "20px", mt: "20px" }}>
-      <FormControl fullWidth margin="normal">
+    <Box sx={{ background: "#fafafa", padding: 2, mt: 2 }}>
+      <FormControl fullWidth>
         <TextField
           label="School"
           variant="filled"
@@ -43,7 +43,7 @@ const School = ({ school }) => {
           InputLabelProps={{ shrink: true }}
         />
       </FormControl>
-      <FormControl fullWidth margin="normal">
+      <FormControl fullWidth sx={{ mt: 2 }}>
         <TextField
           label="Degree"
           variant="filled"
@@ -54,7 +54,7 @@ const School = ({ school }) => {
           InputLabelProps={{ shrink: true }}
         />
       </FormControl>
-      <FormControl fullWidth margin="normal">
+      <FormControl fullWidth sx={{ mt: 2 }}>
         <TextField
           label="Field of Study"
           variant="filled"
@@ -65,7 +65,7 @@ const School = ({ school }) => {
           InputLabelProps={{ shrink: true }}
         />
       </FormControl>
-      <FormControl fullWidth margin="normal">
+      <FormControl fullWidth sx={{ mt: 2 }}>
         <Grid container spacing={2}>
           <Grid item xs={6}>
             <TextField
@@ -93,7 +93,7 @@ const School = ({ school }) => {
           </Grid>
         </Grid>
       </FormControl>
-      <FormControl fullWidth margin="normal">
+      <FormControl fullWidth sx={{ mt: 2 }}>
         <TextField
           multiline
           rows={5}
@@ -105,7 +105,7 @@ const School = ({ school }) => {
           InputLabelProps={{ shrink: true }}
         />
       </FormControl>
-      <FormControl margin="normal">
+      <FormControl sx={{ mt: 2 }}>
         <Button
           variant="contained"
           size="small"

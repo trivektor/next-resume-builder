@@ -34,11 +34,11 @@ const Intro = () => {
   };
 
   return (
-    <Paper sx={{ padding: "50px" }}>
-      <Typography variant="h4" fontWeight={200} sx={{ mb: "20px" }}>
+    <Paper sx={{ padding: 3 }}>
+      <Typography variant="h4" fontWeight={200}>
         <InfoIcon /> Intro
       </Typography>
-      <FormControl fullWidth margin="normal">
+      <FormControl fullWidth sx={{ mt: 2 }}>
         <Grid container spacing={2}>
           <Grid item xs={6}>
             <TextField
@@ -62,7 +62,7 @@ const Intro = () => {
           </Grid>
         </Grid>
       </FormControl>
-      <FormControl fullWidth margin="normal">
+      <FormControl fullWidth sx={{ mt: 2 }}>
         <TextField
           fullWidth
           label="Additional name"
@@ -72,7 +72,7 @@ const Intro = () => {
           onBlur={() => onFieldChange("additionalName", additionalName)}
         />
       </FormControl>
-      <FormControl fullWidth margin="normal">
+      <FormControl fullWidth sx={{ mt: 2 }}>
         <TextField
           fullWidth
           label="Name Pronunciation"
@@ -82,7 +82,7 @@ const Intro = () => {
           onBlur={() => onFieldChange("namePronunciation", namePronunciation)}
         />
       </FormControl>
-      <FormControl fullWidth margin="normal">
+      <FormControl fullWidth sx={{ mt: 2 }}>
         <TextField
           fullWidth
           label="Headline"
@@ -93,7 +93,7 @@ const Intro = () => {
           onBlur={() => onFieldChange("headline", headline)}
         />
       </FormControl>
-      <FormControl fullWidth margin="normal">
+      <FormControl fullWidth sx={{ mt: 2 }}>
         <TextField
           fullWidth
           label="Industry"
@@ -104,7 +104,7 @@ const Intro = () => {
           onBlur={() => onFieldChange("industry", industry)}
         />
       </FormControl>
-      <FormControl fullWidth margin="normal">
+      <FormControl fullWidth sx={{ mt: 2 }}>
         <Grid container spacing={2}>
           <Grid item xs={6}>
             <TextField
@@ -132,7 +132,7 @@ const Intro = () => {
           </Grid>
         </Grid>
       </FormControl>
-      <FormControl fullWidth margin="normal">
+      <FormControl fullWidth sx={{ mt: 2 }}>
         <TextField
           multiline
           rows={2}
