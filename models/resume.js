@@ -65,15 +65,15 @@ const sections = new Schema({
   },
   education: {
     type: [EducationSchema],
-    default: {},
+    default: [],
   },
   skills: {
     type: [SkillSchema],
-    default: {},
+    default: [],
   },
   references: {
     type: [ReferenceSchema],
-    default: {},
+    default: [],
   },
 });
 
