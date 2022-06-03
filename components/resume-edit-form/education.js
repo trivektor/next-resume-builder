@@ -16,13 +16,21 @@ const Education = () => {
 
   return (
     <Paper sx={{ p: 3, mt: 3 }}>
-      <Typography variant="h4" sx={{ mb: 2 }} fontWeight="200">
-        <SchoolIcon /> Education
-      </Typography>
-      <Button variant="contained" onClick={onAdd} startIcon={<AddIcon />}>
-        Add Education
-      </Button>
-      <Box sx={{ mt: "20px" }}>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <Typography variant="h4" fontWeight="200">
+          <SchoolIcon /> Education
+        </Typography>
+        <Button variant="contained" onClick={onAdd} startIcon={<AddIcon />}>
+          Add Education
+        </Button>
+      </Box>
+      <Box sx={{ mt: 2 }}>
         {(resume.sections.education ?? []).map((school) => (
           <School key={school._id} school={school} />
         ))}

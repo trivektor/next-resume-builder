@@ -16,13 +16,21 @@ const Skills = () => {
 
   return (
     <Paper sx={{ p: 3, mt: 3 }}>
-      <Typography variant="h4" sx={{ mb: 2 }} fontWeight="200">
-        <ComputerIcon /> Skills
-      </Typography>
-      <Button variant="contained" onClick={onAdd} startIcon={<AddIcon />}>
-        Add Skill
-      </Button>
-      <Box sx={{ mt: "20px" }}>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <Typography variant="h4" fontWeight="200">
+          <ComputerIcon /> Skills
+        </Typography>
+        <Button variant="contained" onClick={onAdd} startIcon={<AddIcon />}>
+          Add Skill
+        </Button>
+      </Box>
+      <Box sx={{ mt: 2 }}>
         {(resume.sections.skills ?? []).map((skill) => (
           <Skill key={skill._id} skill={skill} />
         ))}

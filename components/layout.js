@@ -1,9 +1,17 @@
 import { useSession, signIn, signOut } from "next-auth/react";
 import { styled } from "@mui/material/styles";
-import { AppBar, Box, Toolbar, Button, Typography } from "@mui/material";
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  Button,
+  Typography,
+  IconButton,
+} from "@mui/material";
 import LogoutIcon from "@mui/icons-material/Logout";
 import LoginIcon from "@mui/icons-material/Login";
 import PersonIcon from "@mui/icons-material/Person";
+import LockOpenIcon from "@mui/icons-material/LockOpen";
 import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -36,30 +44,27 @@ const Layout = ({ children }) => {
           </Typography>
         </Link>
 
-        <div>
+        <Fragment>
           {session ? (
-            <Fragment>
-              <PersonIcon size="large" /> {session.user.email}
-              <Button
-                onClick={() => signOut()}
-                color="inherit"
-                size="small"
-                endIcon={<LogoutIcon />}
-              >
-                Sign out
-              </Button>
-            </Fragment>
-          ) : (
-            <Button
-              onClick={() => signIn()}
-              color="inherit"
-              size="small"
-              endIcon={<LoginIcon />}
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+              }}
             >
-              Sign in
-            </Button>
+              <PersonIcon />
+              <Box sx={{ ml: 1, mr: 1 }}>{session.user.email}</Box>
+              <IconButton onClick={signOut} title="Logout">
+                <LogoutIcon />
+              </IconButton>
+            </Box>
+          ) : (
+            <IconButton onClick={signIn} title="Login">
+              <LockOpenIcon />
+            </IconButton>
           )}
-        </div>
+        </Fragment>
       </Toolbar>
     </AppBar>
   );
